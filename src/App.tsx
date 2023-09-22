@@ -4,10 +4,21 @@ import Navbar from "./components/navbar/Navbar";
 
 function App() {
   const [counter, setCounter] = useState(0);
+  const [isTooltipDisplayed, setIsTooltipDisplyed] = useState(false);
 
   const updateCounter = (increase: boolean) => {
     setCounter((currentValue) => {
-      return increase ? currentValue + 1 : currentValue - 1;
+      const futureValue = increase ? currentValue + 1 : currentValue - 1;
+      const attemptedToGoUnderZero = futureValue < 0;
+      return attemptedToGoUnderZero
+        ? (() => {
+            setIsTooltipDisplyed(true);
+            return 0;
+          })()
+        : (() => {
+            if (isTooltipDisplayed) setIsTooltipDisplyed(false);
+            return futureValue;
+          })();
     });
   };
 
@@ -38,6 +49,20 @@ function App() {
           </div>
         </div>
       </div>
+      {isTooltipDisplayed ? (
+        <div className="container d-flex justify-content-center">
+          <div className="row">
+            <div className="col alert alert-danger" role="alert">
+              <h5 className="alert-heading">
+                Oops! Something went wrong...
+              </h5>
+              <p className="mb-0">Counter cannot display value less than 0!</p>
+              <hr />
+              <p className="mb-0"> Hint: Click on button "Increase +"</p>
+            </div>
+          </div>
+        </div>
+      ) : null}
     </div>
   );
 }
