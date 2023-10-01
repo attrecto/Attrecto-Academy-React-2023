@@ -1,26 +1,28 @@
 import React, { useEffect, useState } from "react";
-import { UserModel } from "../../models/user.model";
+import { UserModel } from "../../model/user.model";
 import { usersService } from "../../services/user.service";
 import Page from "../../components/Page/Page";
 
-const UsersPage = () => {
-  const [users, setUsers] = useState<UserModel[]>([]);
+const UsersPage = () => 
+{
+    const [users, setUsers] = useState<UserModel[]>([]);
 
-  useEffect(() => {
-    const fetchUsers = async () => {
-      setUsers(await usersService.getUsers());
-    };
+    useEffect(() => {
+        const fetchUsers = async () => {
+            setUsers(await usersService.getUsers());
+        };
 
-    fetchUsers();
-  }, []);
+        fetchUsers();
+    }, []);
 
-  console.log(users);
+    console.log(users);
 
-  return (
-    <Page title="Users">
-      <div>UsersPage</div>
-    </Page>
-  );
+    return (
+        <Page title="Users">
+            <div>UsersPage</div>
+        </Page>
+    );
 };
 
-export default UsersPage;
+
+    export default UsersPage;
