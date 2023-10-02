@@ -1,7 +1,7 @@
 import classNames from "classnames";
-import React from "react";
+import React, { ButtonHTMLAttributes } from "react";
 
-interface ButtonProps {
+interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   color?: "primary" | "secondary" | "danger";
   onClick?: () => void;
   children: React.ReactNode;
