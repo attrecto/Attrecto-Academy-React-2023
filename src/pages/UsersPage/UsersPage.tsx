@@ -9,9 +9,20 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import classes from "./UsersPage.module.scss";
 import { faTrash } from "@fortawesome/free-solid-svg-icons";
+import User from "../../components/User/User";
 
 const UsersPage = () => {
   const [users, setUsers] = useState<UserModel[]>([]);
+  const [view_state,setViewState]=useState(2);
+
+  const SetToTableView = () => {
+    setViewState(1);
+  };
+
+  const SetToListView = () => {
+    setViewState(2);
+  };
+
 
   useEffect(() => {
     const fetchUsers = async () => {
@@ -23,35 +34,24 @@ const UsersPage = () => {
 
   return (
     <Page title="Users">
-      <div className="row">
-        <div className="col-12 col-sm-6 col-md-4 col-lg-3">
-          <Button className="w-100 mb-3">Create User</Button>
-        </div>
+      <div className="d-flex justify-content-center flex-wrap gap-2">
+      <Button color="primary" onClick={SetToTableView} >Tábla Nézet</Button>
+      <Button color="primary" onClick={SetToListView}>Lista Nézet</Button>
       </div>
       <div className="row">
-        {users.map(({ id, image, name }) => (
-          <div key={id} className="col-12 col-sm-6 col-md-4 col-lg-3 my-1">
-            <Link
-              to={`/user/${id}`}
-              className={classNames("card", classes.UserCard)}
-            >
-              <img
-                src={image}
-                alt={`user #${id}`}
-                className={classNames("card-img-top", classes.UserImage)}
-              />
-              <div className="card-body">
-                <h5>{name}</h5>
-              </div>
-              <Button className={classes.DeleteIcon}>
-                <FontAwesomeIcon icon={faTrash} />
-              </Button>
-            </Link>
+          <div className="col-12 col-sm-6 col-md-4 col-lg-3">
+            <Button className="w-100 mb-3">Create User</Button>
           </div>
-        ))}
-      </div>
+        </div>
+        <div className="row">
+          {users.map((item) => (
+            <User state={view_state} user={item}  className="my-1"></User>
+          ))}
+        </div>
     </Page>
   );
 };
+
+
 
 export default UsersPage;
