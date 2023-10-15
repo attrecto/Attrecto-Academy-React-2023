@@ -7,6 +7,7 @@ import UsersPage from "./pages/UsersPage/UsersPage";
 import BadgesPage from "./pages/BadgesPage/BadgesPage";
 import NotFoundPage from "./pages/NotFoundPage/NotFoundPage";
 import UserPage from "./pages/UserPage/UserPage";
+import UsersTableView from "./pages/UserTablePage/UserTablePage";
 
 function App() {
   return (
@@ -18,9 +19,9 @@ function App() {
         <Route path="/" element={<Navigate to="/home" />} />
         <Route path="/home" element={<HomePage />} />
         <Route path="/users" element={<UsersPage />} />
+        <Route path="/usersTableView" element={<UsersTableView />} />
         <Route path="/user/:id" element={<UserPage />} />
         <Route path="/badges" element={<BadgesPage />} />
-
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </div>
