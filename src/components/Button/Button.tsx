@@ -3,12 +3,16 @@ import React, { ButtonHTMLAttributes } from "react";
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   color?: "primary" | "secondary" | "danger";
-  onClick?: () => void;
   children: React.ReactNode;
   className?: string;
 }
 
-const Button = ({ color, children, className, onClick }: ButtonProps) => {
+const Button = ({
+  color = "primary",
+  children,
+  className,
+  onClick,
+}: ButtonProps) => {
   return (
     <button
       className={classNames(
