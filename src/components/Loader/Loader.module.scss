@@ -1,0 +1,21 @@
+.SpinnerDiv
+{
+    width: 100%;
+    text-align: center;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+
+    .Spinner
+    {
+        width: 3rem !important;
+        height: 3rem !important;
+    }
+
+    .Felirat
+    {
+        display: block !important;
+    }
+}
