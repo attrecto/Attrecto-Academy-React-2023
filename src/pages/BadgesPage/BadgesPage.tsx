@@ -19,7 +19,7 @@ const BadgesPage = () => {
   }, []);
 
   return (
-    <Page title="Badges">
+    <Page title="Badges" badge>
       <div className="row">
         {badges.map(({ id, image, name, description }) => (
           <div key={id} className="col-lg-4 col-md-6 col-sm-12">
