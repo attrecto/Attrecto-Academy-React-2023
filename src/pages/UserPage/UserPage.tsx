@@ -76,7 +76,7 @@ const UserPage = () => {
   console.log(user);
 
   return (
-    <Page title={user ? user.name : "User"}>
+    <Page title={user ? user.name : "User"} badge user>
       <form onSubmit={handleSubmit(onSubmit)}>
         <TextField
           name="name"
