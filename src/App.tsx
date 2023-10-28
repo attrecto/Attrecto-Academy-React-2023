@@ -10,16 +10,16 @@ function App() {
     setCounter((currentValue) => {
       const futureValue = increase ? currentValue + 1 : currentValue - 1;
       const attemptedToGoUnderZero = futureValue < 0;
-      return attemptedToGoUnderZero
-        ? (() => {
-            setIsTooltipDisplyed(true);
-            return 0;
-          })()
-        : (() => {
-            if (isTooltipDisplayed) setIsTooltipDisplyed(false);
-            return futureValue;
-          })();
+      attemptedToGoUnderZero
+        ? setIsTooltipDisplyed(true)
+        : setIsTooltipDisplyed(false);
+      return attemptedToGoUnderZero ? 0 : futureValue;
     });
+  };
+
+  const resetCounter = () => {
+    setCounter(0);
+    setIsTooltipDisplyed(false);
   };
 
   return (
@@ -43,7 +43,7 @@ function App() {
             >
               Decrease -
             </button>
-            <button className="btn btn-danger" onClick={() => setCounter(0)}>
+            <button className="btn btn-danger" onClick={() => resetCounter()}>
               Reset
             </button>
           </div>
@@ -53,9 +53,7 @@ function App() {
         <div className="container d-flex justify-content-center">
           <div className="row">
             <div className="col alert alert-danger" role="alert">
-              <h5 className="alert-heading">
-                Oops! Something went wrong...
-              </h5>
+              <h5 className="alert-heading">Oops! Something went wrong...</h5>
               <p className="mb-0">Counter cannot display value less than 0!</p>
               <hr />
               <p className="mb-0"> Hint: Click on button "Increase +"</p>
