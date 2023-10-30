@@ -7,6 +7,7 @@ import { useNavigate } from "react-router-dom";
 import UserCard from "../../components/user-card/UserCard";
 import { BadgeModel } from "../../models/badges.model";
 import { badgeService } from "../../services/badges.service";
+import AccessController from "../../components/access-controller/AccessController";
 
 const UsersPage = () => {
   const [users, setUsers] = useState<UserModel[]>([]);
@@ -43,13 +44,15 @@ const UsersPage = () => {
 
   return (
     <Page title="Users">
-      <div className="row">
-        <div className="col-12 col-sm-6 col-md-4 col-lg-3">
-          <Button className="w-100 mb-3" onClick={goToUserPage}>
-            Create User
-          </Button>
+      <AccessController allowedFor={["ADMIN"]}>
+        <div className="row">
+          <div className="col-12 col-sm-6 col-md-4 col-lg-3">
+            <Button className="w-100 mb-3" onClick={goToUserPage}>
+              Create User
+            </Button>
+          </div>
         </div>
-      </div>
+      </AccessController>
       <div className="row">
         {users.map((user) => (
           <div key={user.id} className="col-12 col-sm-6 col-md-4 col-lg-3 my-1">
