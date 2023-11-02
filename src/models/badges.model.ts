@@ -1,7 +1,9 @@
-export interface BadgeModel {
-    id: number;
+export interface BadgeModel
+{
+    id:number;
     name: string;
-    image: string;
     description: string;
-    createAt: Date;
-  }
+    image: string;
+    createdAt: Date;
+}
+export interface Badge extends Omit<BadgeModel, "id" | "createdAt">{}
