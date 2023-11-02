@@ -10,12 +10,14 @@ import UserPage from "./pages/UserPage/UserPage";
 import { AUTH_TOKEN } from "./util/constants";
 import { getDataFromTokenModel } from "./util/token";
 import LoginPage from "./pages/LoginPage/LoginPage";
+import BadgePage from "./pages/BadgePage/BadgePage";
 
 function App() {
   const [role, setRole] = useState<Role | null>(getDataFromTokenModel("role") as Role);
   const [token, setToken] = useState<string | null>(localStorage.getItem(AUTH_TOKEN));
 
   const userRouteElement = role === "ADMIN" ? <UserPage /> : <Navigate to="/home" replace />;
+  const badgeRouteElement = role === "ADMIN" ? <BadgePage /> : <Navigate to="/home" replace />;
 
   const login = (token: string) => {
     localStorage.setItem(AUTH_TOKEN, token);
@@ -44,6 +46,8 @@ function App() {
         <Route path="/user" element={userRouteElement} />
         <Route path="/user/:id" element={userRouteElement} />
         <Route path="/badges" element={<BadgesPage />} />
+        <Route path="/badge" element={badgeRouteElement} />
+        <Route path="/badge/:id" element={badgeRouteElement} />
 
         <Route path="*" element={<NotFoundPage />} />
         <Route path="/login" element={<Navigate to="/home" replace />} />

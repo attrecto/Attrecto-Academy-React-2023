@@ -1,0 +1,39 @@
+
+.Badge {
+  background: white;
+  border-radius: 50px;
+  width: 100%;
+  margin-bottom: 2rem;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
+  text-decoration: none;
+
+  &:not(.NotLink) {
+    &:hover {
+      cursor: pointer;
+      background: whitesmoke;
+      text-decoration: none;
+    }
+  }
+
+
+  .BadgeImage {
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    height: 100px;
+    width: 100px;
+  }
+
+  .DeleteIcon {
+    position: static;
+    top: 30px;
+    right: 10px;
+    opacity: 0.5;
+    z-index: 100;
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+
+}
