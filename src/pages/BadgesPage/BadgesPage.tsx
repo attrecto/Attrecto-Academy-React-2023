@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect, useState } from "react";
-import { BadgeModel } from "../../model/badges.model";
+import { BadgeModel } from "../../models/badges.model";
 import { badgesService } from "../../services/badges.service";
 import Page from "../../components/Page/Page";
 import Badge from "../../components/Badge/badge";

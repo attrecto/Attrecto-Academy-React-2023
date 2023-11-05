@@ -9,7 +9,7 @@ import Page from "../../components/Page/Page";
 import TextField from "../../components/text-field/TextField";
 import TagField from "../../components/tag-field/TagField";
 import { BadgeModel } from "../../models/badges.model";
-import { badgeService } from "../../services/badges.service";
+import { badgesService } from "../../services/badges.service";
 import Button from "../../components/Button/Button";
 
 const schema = Yup.object({
@@ -51,7 +51,7 @@ const UserPage = () => {
 
   useEffect(() => {
     const fetchBadges = async () => {
-      setBadges(await badgeService.getBadges());
+      setBadges(await badgesService.getBadges());
     };
     fetchBadges();
   }, []);

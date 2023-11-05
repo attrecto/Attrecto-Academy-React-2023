@@ -1,4 +1,4 @@
-import { Badge, BadgeModel } from "../model/badges.model";
+import { Badge, BadgeModel } from "../models/badges.model";
 import request, { Methods } from "../util/request";
 
 class BadgesService 

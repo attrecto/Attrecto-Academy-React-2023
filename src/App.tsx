@@ -1,16 +1,15 @@
 import React, { useState } from "react";
 import { Navigate, Route, Routes } from "react-router-dom";
 import Navbar from "./components/navbar/Navbar";
-import HomePage from "./Pages/HomePage/HomePage";
-import UsersPage from "./Pages/UsersPage/UsersPage";
-import BadgesPage from "./Pages/BadgesPage/BadgesPage";
-import NotFoundPage from "./Pages/NotFound/NotFoundPage";
-import UserPage from "./Pages/UserPage/UserPage";
-import UserTablePage from "./Pages/UserTablePage/UserTablePage";
-import LoginPage from "./Pages/LoginPage/LoginPage";
-import BadgePage from "./Pages/BadgePage/BadgePage";
+import HomePage from "./pages/HomePage/HomePage";
+import UsersPage from "./pages/UsersPage/UsersPage";
+import BadgesPage from "./pages/BadgesPage/BadgesPage";
+import NotFoundPage from "./pages/NotFoundPage/NotFoundPage";
+import UserPage from "./pages/UserPage/UserPage";
+import LoginPage from "./pages/LoginPage/LoginPage";
+import BadgePage from "./pages/BadgePage/BadgePage";
 import { getDataFromTokenModel } from "./util/token";
-import { AUTH_TOKEN } from "./util/constans";
+import { AUTH_TOKEN } from "./util/constants";
 
 function App() 
 {
@@ -47,7 +46,6 @@ function App()
           <Route path="/home" element={<HomePage />} />
           <Route path="/users" element={<UsersPage />} />
           <Route path="/user" element={userRouteElement} />
-          <Route path="/usersTableView" element={<UserTablePage />} />
           <Route path="/user/:id" element={userRouteElement} />
           <Route path="/badges" element={<BadgesPage />} />
           <Route path="/badge" element={badgeRouteElement} />

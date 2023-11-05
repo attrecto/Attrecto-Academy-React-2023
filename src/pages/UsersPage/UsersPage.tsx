@@ -6,7 +6,7 @@ import Button from "../../components/Button/Button";
 import { useNavigate } from "react-router-dom";
 import UserCard from "../../components/user-card/UserCard";
 import { BadgeModel } from "../../models/badges.model";
-import { badgeService } from "../../services/badges.service";
+import { badgesService } from "../../services/badges.service";
 import AccessController from "../../components/access-controller/AccessController";
 
 const UsersPage = () => {
@@ -28,7 +28,7 @@ const UsersPage = () => {
 
   useEffect(() => {
     const fetchBadges = async () => {
-      setBadges(await badgeService.getBadges());
+      setBadges(await badgesService.getBadges());
     };
     fetchBadges();
   }, []);

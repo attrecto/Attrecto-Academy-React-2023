@@ -1,6 +1,6 @@
 import React from 'react';
-import { BadgeModel } from '../../model/badges.model';
-import classes from "../../Pages/BadgesPage/Badges.module.scss";
+import { BadgeModel } from '../../models/badges.model';
+import classes from "../../pages/BadgesPage/Badges.module.scss";
 import classNames from "classnames";
 import { hasPermission } from "../../util/hasPermission";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
