@@ -5,7 +5,7 @@ import * as Yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import Page from "../../components/Page/Page";
 import TextField from "../../components/text-field/TextField";
-import { Badge, BadgeModel } from "../../model/badges.model";
+import { Badge, BadgeModel } from "../../models/badges.model";
 import { badgesService } from "../../services/badges.service";
 import Button from "../../components/Button/Button";
 
